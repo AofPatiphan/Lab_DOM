@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 4.4</title>
+  </head>
+  <body>
+    <!-- จงสร้างลิงค์ <a> Tag มีข้อความว่า “Google”
+      เมื่อผู้ใช้ click link ให้ขึ้นคำถามว่า “Leave for https://google.com?”
+      ถ้าผู้ใช้กด OK ให้ redirect ไปที่ https://google.com
+      ถ้าผู้ใช้กด Cancel ให้ยกเลิก redirect ไปที่ https://google.com -->
+
+    <a href="https://google.com">Google</a>
+    <script>
+      //หมุดตำแหน่งตัวที่จะทำก่อน
+      // เพิ่มอีเว้นให้มัน
+      const aTag = document.querySelector("a");
+      aTag.addEventListener("click", function (event) {
+        event.preventDefault();
+        const redirect = confirm("Leave for https://google.com?");
+        if (redirect === true) {
+          location.href = "https://google.com";
+        }
+      });
+    </script>
+  </body>
+</html>

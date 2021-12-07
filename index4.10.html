@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 4.10</title>
+    <style>
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- จงสร้าง Label และ Select ดังรูป
+    เมื่อ click <select> ของ Province ให้แสดงรายชื่อจังหวัด
+    เมื่อ click <select> ของ District ให้แสดงอำเภอของจังหวัดที่ถูกเลือก -->
+
+    <div>
+      <label for="province">Province:</label>
+      <select name="province" id="province">
+        <option value="">SELECT</option>
+        <option value="BANGKOK">Bangkok</option>
+        <option value="PHUKET">Phuket</option>
+        <option value="RANONG">Ranong</option>
+      </select>
+    </div>
+    <br />
+    <div>
+      <label for="district">District</label>
+      <select name="district" id="district">
+        <option value="">SELECT</option>
+      </select>
+    </div>
+
+    <script>
+      const mapProvinceDistrict = {
+        BANGKOK: ["BANGBON", "BANGKHAE", "BANGKAPI"],
+        PHUKET: ["KATHU", "THALANG"],
+        RANONG: ["KRA BURI", "KA POE"],
+      };
+
+      const province = document.querySelector("#province");
+      province.addEventListener("change", function () {
+        const district = document.querySelector("#district");
+        const provinceSelected = province.value;
+        const showDistrict = mapProvinceDistrict[provinceSelected] || [];
+
+        // #วิธีปกติ
+        // let str = `<option value="">SELECT</option>`;
+        // for (let el of showDistrict) {
+        //   str += ` <option value="${el}">${el}</option>`;
+        // }
+
+        // #วิธี Map
+        let str =
+          `<option value="">SELECT</option>` +
+          showDistrict
+            .map((el) => `<option value="${el}">${el}</option>`)
+            .join("");
+        district.innerHTML = str;
+      });
+    </script>
+  </body>
+</html>

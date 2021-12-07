@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 4.8</title>
+    <style>
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- จงสร้าง Button มีข้อความว่า “Hide”
+เมื่อผู้ใช้ click button ให้ซ่อนข้อความและเปลี่ยนข้อความบน Button เป็น “Show” เมื่อ click button อีกครั้งให้แสดงข้อความและเปลี่ยนข้อความบน Button เป็น Hide -->
+
+    <button>Hide</button>
+    <h1>Lorem ipsum dolor sit amet.</h1>
+    <script>
+      const btn = document.querySelector("button");
+      btn.addEventListener("click", function () {
+        const text = document.querySelector("h1");
+        //วิธี 1
+        if (text.style.display === "none") {
+          text.style.display = "";
+          btn.innerHTML = "hide";
+        } else {
+          text.style.display = "none";
+          btn.innerHTML = "show";
+        }
+        //     //วิธี 2
+        //     if (text.classList.contains("hidden")) {
+        //       btn.innerHTML = "hide";
+        //     } else {
+        //       btn.innerHTML = "show";
+        //     }
+        //     text.classList.toggle("hidden"); //ถ้าเดิมมีอยู่ จะเอาออก ถ้าไม่มีจะใส่เข้าไป
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 4.9</title>
+    <style>
+      .error {
+        color: red;
+      }
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- จงสร้าง Input และ Button ดังรูปเมื่อผู้ใช้กรอกเบอร์โทรและกด Check
+ถ้าผู้ใช้ไม่กรอกให้ขึ้นข้อความ Phone Number is required
+ถ้าผู้ใช้กรอกค่าที่ไม่ใช่ตัวเลขให้ขึ้นข้อความ Phone Number is invalid
+ถ้าผู้ใช้กรอกค่าที่มีความยาวไม่เท่ากับ 10 ให้ขึ้นข้อความ Invalid length
+ถ้ากรอกถูกต้องให้ Alert “Your number is valid” -->
+
+    <input type="text" placeholder="Phone number" />
+    <button>Check</button>
+    <p class="error"></p>
+
+    <script>
+      const btn = document.querySelector("button");
+      btn.addEventListener("click", function () {
+        const input = document.querySelector("input");
+        const value = input.value; //select ข้อความข้างใน
+        const pTag = document.querySelector("p");
+
+        if (value === "") {
+          pTag.innerHTML = "Phone number is required";
+          pTag.classList.remove("hidden"); //ถ้ามีจะไม่ใส่ ถ้าไม่มีจะใส่เข้าไปให้
+          input.classList.add("error");
+        } else if (isNaN(value.trim())) {
+          pTag.innerHTML = "Phone number is invalid";
+          pTag.classList.remove("hidden");
+          input.classList.add("error");
+        } else if (value.length !== 10) {
+          pTag.innerHTML = "Invalid length";
+          pTag.classList.remove("hidden");
+          pTag.classList.add("error");
+          input.classList.add("error");
+        } else {
+          pTag.classList.add("hidden");
+          pTag.classList.remove("error");
+          alert("Valid phone number");
+        }
+      });
+    </script>
+  </body>
+</html>

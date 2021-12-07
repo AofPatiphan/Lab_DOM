@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 3.2</title>
+  </head>
+  <body>
+    <!-- จงสร้าง <ul>
+        เขียนคำสั่ง prompt เพื่อรับข้อความ
+        นำข้อความที่ได้มาสร้าง <li> และ เพิ่มเข้าไปใน <ul>
+        เพิ่มไปเรื่อยๆจนกว่าผู้ใช้จะกด Cancel หรือ พิมพ์ข้อความว่าง -->
+
+    <script>
+      const ul = document.createElement("ul");
+
+      let input = prompt("Enter Text");
+      while (input !== null && input !== "") {
+        const li = document.createElement("li");
+        li.innerHTML = input; // จับ in
+        ul.append(li); // ยัด li เข้าไปใน ul
+        input = prompt("Enter text");
+      }
+
+      document.body.append(ul);
+    </script>
+  </body>
+</html>

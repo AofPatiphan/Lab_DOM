@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 2.4</title>
+  </head>
+  <body>
+    <!-- จงเขียนคำสั่งเพื่อ access <li> ตัวที่สอง โดยใช้วิธีต่อไปนี้
+        -querySelector
+        -querySelectorAll
+        -getElementsByClassName
+        -getElementById
+        -getElementsByTagName -->
+    <div>
+      <h2 class="title-1">List of companies</h2>
+      <ul>
+        <li id="1">Google</li>
+        <li class="active" id="2">Yahoo</li>
+        <li id="3">Tencent</li>
+      </ul>
+    </div>
+
+    <script>
+      const target1 = document.querySelector("li").nextElementSibling; // document.querySelector(".active")
+      const target2 = document.querySelectorAll("li")[1]; // document.querySelectorAll(".active")[0]
+      const target3 = document.getElementsByClassName("active")[0];
+      const target4 = document.getElementsByTagName("li")[1];
+      console.log(target1);
+      console.log(target2);
+      console.log(target3);
+      console.log(target4);
+    </script>
+  </body>
+</html>

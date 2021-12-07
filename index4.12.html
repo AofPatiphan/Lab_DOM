@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 4.12</title>
+    <style>
+      .line-through {
+        color: seagreen;
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- จงสร้าง Todo List ดังรูป
+เมื่อผู้ใช้ click Add ให้เพิ่มรายการ
+เมื่อผู้ใช้ click Edit ให้แก้ไขข้อความ
+เมื่อผู้ใช้ click Del ให้ลบรายการ
+เมื่อผู้ใช้ click ที่รายการใน List ให้
+Toggle เส้นที่ขีดค่าข้อความ -->
+
+    <button class="btn-add">Add</button>
+    <ul></ul>
+
+    <script>
+      const btnAdd = document.querySelector(".btn-add");
+      btnAdd.addEventListener("click", function () {
+        const input = prompt("Enter new task");
+        const li = document.createElement("li"); //สร้างแท็ก li
+        const span = document.createElement("span");
+
+        //สร้างปุ่มรอไว้
+        const btnEdit = document.createElement("button"); //Edit คือใส่ข้อความในปุ่ม
+        const btnDelete = document.createElement("button");
+        span.innerHTML = input;
+        btnEdit.innerHTML = "Edit";
+        btnDelete.innerHTML = "Delete";
+
+        // ขีดฆ่า
+        span.addEventListener("click", function () {
+          this.classList.toggle("line-through");
+        });
+
+        //ใส่ทุกอย่างลงใน li
+        li.append(span);
+        li.append(btnEdit);
+        li.append(btnDelete);
+
+        //ปุ่ม edit
+        btnEdit.addEventListener("click", function () {
+          const editText = prompt("Enter edit task");
+          const editResult = this.previousElementSibling;
+          editResult.innerHTML = editText;
+        });
+
+        // ปุ่ม delete
+        btnDelete.addEventListener("click", function () {
+          this.closest("li").remove();
+        });
+
+        const ul = document.querySelector("ul"); // select ul; มารอยัด li
+
+        //ยัด li เข้าไปใน  ul
+        ul.append(li);
+      });
+    </script>
+  </body>
+</html>

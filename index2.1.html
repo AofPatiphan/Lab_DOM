@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Lab</title>
+  </head>
+  <body>
+    <!--  Lab 2.1 -->
+    <!-- จงเขียนคำสั่งเพื่อ access <div>, <ul>, <li> ตัวแรก และ <li> ตัวที่สอง -->
+    <div>Users:</div>
+    <ul>
+      <li>John</li>
+      <li>Pete</li>
+    </ul>
+    <script>
+      const div = document.body.firstElementChild;
+      div.style.color = "red";
+      console.log(div);
+      const ul = div.nextElementSibling;
+      ul.style.color = "red";
+      console.log(ul);
+      const li1 = ul.firstElementChild;
+      li1.style.color = "red";
+      console.log(li1);
+      const li2 = li1.nextElementSibling;
+      li2.style.color = "red";
+      console.log(li2);
+    </script>
+  </body>
+</html>

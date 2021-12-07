@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 3.4</title>
+    <style>
+      .red {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- จงเขียนคำสั่งเพื่อเปลี่ยนสีพื้นหลังของ button ให้เป็นสีแดงเมื่อเวลาผ่านไป 3 วินาที หลังจากนั้นอีก 3 วินาทีให้เปลี่ยนสีพื้นหลังกลับมาเหมือนเดิม
+            - ใช้วิธีเปลี่ยน property style ของ element object
+            - ใช้วิธีเพิ่มลด class -->
+
+    <button class="btn">Submit</button>
+    <script>
+      const button = document.querySelector("button");
+      //   setTimeout(function () {
+      //     // button.style.background = "red";  // วิธี 1
+      //     button.classList.add("red"); // วิธี 2
+      //   }, 3000);
+
+      //   setTimeout(function () {
+      //     // button.style.background = "";  // วิธี 1
+      //     button.classList.remove("red"); // วิธี 2
+      //   }, 6000);
+
+      // เสริม ให้รันวนไปเรื่อยๆ ต้องปิดตัวอื่นก่อน
+      setInterval(() => {
+        button.classList.toggle("red");
+      }, 200);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 2.2</title>
+  </head>
+  <body>
+    <!-- Lab 2.2 -->
+    <!-- จงเขียนคำสั่งเพื่อ access <h2> โดยใช้วิธีต่อไปนี้
+        -querySelector
+        -querySelectorAll
+        -getElementsByClassName
+        -getElementsByTagName -->
+    <div>
+      <h2 class="title-1">List of companies</h2>
+      <ul>
+        <li id="1">Google</li>
+        <li class="active" id="2">Yahoo</li>
+        <li id="3">Tencent</li>
+      </ul>
+    </div>
+    <script>
+      const ele1 = document.querySelector("h2"); //document.querySelector(".title-1")
+      console.log(ele1);
+      const ele2 = document.querySelectorAll("h2")[0]; //document.querySelectorAll(".title-1")[0]
+      console.log(ele2);
+      const ele3 = document.getElementsByClassName("title-1")[0];
+      console.log(ele3);
+      const ele4 = document.getElementsByTagName("h2")[0];
+      console.log(ele4);
+      // ele4.style.color = "red";
+    </script>
+  </body>
+</html>
